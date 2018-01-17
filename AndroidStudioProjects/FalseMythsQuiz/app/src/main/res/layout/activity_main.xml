@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:scrollbars="none"
+    tools:context="com.example.android.falsemythsquiz.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/general_padding">
+
+        <LinearLayout
+            android:id="@+id/main_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/GroupQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/QuestionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1. What's the real color of the Sun?" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/question_group1"
+                        android:layout_width="@dimen/short_radio_group"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="16dp">
+
+                        <RadioButton
+                            android:id="@+id/q1_orange"
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/q1a" />
+
+                        <RadioButton
+                            android:id="@+id/q1_white"
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/q1b" />
+
+
+                        <RadioButton
+                            android:id="@+id/q1_yellow"
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/q1c" />
+
+
+                        <RadioButton
+                            android:id="@+id/q1_magenta"
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/q1d" />
+
+
+                    </RadioGroup>
+
+                    <ImageView
+                        android:layout_width="@dimen/question_img_width"
+                        android:layout_height="@dimen/question_img_height"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/sun" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/GroupQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/QuestionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2. Vikings wore horns on their helmets." />
+
+                <RadioGroup
+                    android:id="@+id/question_group2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        style="@style/ChoiceText"
+                        android:layout_width="@dimen/short_answer_width"
+                        android:layout_height="wrap_content"
+                        android:onClick="onTouch"
+                        android:text="@string/xtrue" />
+
+                    <RadioButton
+                        android:id="@+id/q2_false"
+                        style="@style/ChoiceText"
+                        android:layout_width="@dimen/short_answer_width"
+                        android:layout_height="wrap_content"
+                        android:onClick="onTouch"
+                        android:text="@string/xfalse" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/GroupQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/QuestionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3. What does \'Sushi\' translate to?" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/question_group3"
+                        android:layout_width="@dimen/short_radio_group"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="16dp">
+
+
+                        <RadioButton
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/q3a" />
+
+                        <RadioButton
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/q3b" />
+
+
+                        <RadioButton
+                            android:id="@+id/q3_sour_rice"
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/q3c" />
+
+                        <RadioButton
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/q3d" />
+
+                    </RadioGroup>
+
+                    <ImageView
+                        android:layout_width="@dimen/question_img_width"
+                        android:layout_height="@dimen/question_img_height"
+                        android:padding="16dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/sushi" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/GroupQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/QuestionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4. Seasons are caused by Earth's axial tilt" />
+
+                <RadioGroup
+                    android:id="@+id/question_group4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/q4_true"
+                        style="@style/ChoiceText"
+                        android:layout_width="@dimen/short_answer_width"
+                        android:layout_height="wrap_content"
+                        android:text="@string/xtrue" />
+
+                    <RadioButton
+                        style="@style/ChoiceText"
+                        android:layout_width="@dimen/short_answer_width"
+                        android:layout_height="wrap_content"
+                        android:text="@string/xfalse" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/GroupQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/QuestionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5. Where do fortune cookies originated in?" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/question_group5"
+                        android:layout_width="@dimen/short_radio_group"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="16dp">
+
+
+                        <RadioButton
+                            android:id="@+id/q5_japan"
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/q5a" />
+
+                        <RadioButton
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/q5b" />
+
+
+                        <RadioButton
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/q5c" />
+
+                        <RadioButton
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/q5d" />
+
+                    </RadioGroup>
+
+                    <ImageView
+                        android:layout_width="@dimen/question_img_width"
+                        android:layout_height="@dimen/question_img_height"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/cookie" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/GroupQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/QuestionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="6. Einstein have failed at math classes in school" />
+
+                <RadioGroup
+                    android:id="@+id/question_group6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        style="@style/ChoiceText"
+                        android:layout_width="@dimen/short_answer_width"
+                        android:layout_height="wrap_content"
+                        android:text="@string/xtrue" />
+
+                    <RadioButton
+                        android:id="@+id/q6_false"
+                        style="@style/ChoiceText"
+                        android:layout_width="@dimen/short_answer_width"
+                        android:layout_height="wrap_content"
+                        android:text="@string/xfalse" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/GroupQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/QuestionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7. Which two of these food contain cyanide?" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_banana"
+                        style="@style/CheckboxText"
+                        android:layout_width="@dimen/short_answer_width"
+                        android:layout_height="wrap_content"
+                        android:onClick="onCheckboxClick"
+                        android:text="@string/q7a" />
+
+                    <CheckBox
+                        android:id="@+id/checkbox_spinach"
+                        style="@style/CheckboxText"
+                        android:layout_width="@dimen/short_answer_width"
+                        android:layout_height="wrap_content"
+                        android:onClick="onCheckboxClick"
+                        android:text="@string/q7b" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <CheckBox
+                        android:id="@+id/checkbox_almond"
+                        style="@style/CheckboxText"
+                        android:layout_width="@dimen/short_answer_width"
+                        android:layout_height="wrap_content"
+                        android:onClick="onCheckboxClick"
+                        android:text="@string/q7c" />
+
+                    <CheckBox
+                        android:id="@+id/checkbox_carrot"
+                        style="@style/CheckboxText"
+                        android:layout_width="@dimen/short_answer_width"
+                        android:layout_height="wrap_content"
+                        android:onClick="onCheckboxClick"
+                        android:text="@string/q7d" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/GroupQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        style="@style/QuestionText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8. What insect makes this sound?" />
+
+                    <Button
+                        android:id="@+id/sound_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:text="Play Sound"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+
+                <EditText
+                    android:id="@+id/text_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/type_hint"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/GroupQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/QuestionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9. What does \'Black Belt\' indicate in martial arts?" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/question_group9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="8dp">
+
+
+                        <RadioButton
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/expertise" />
+
+                        <RadioButton
+                            android:id="@+id/q9_competency"
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/competency" />
+
+
+                        <RadioButton
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/experience" />
+
+                        <RadioButton
+                            style="@style/ChoiceText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/leader" />
+
+                    </RadioGroup>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/black_belt"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/main_group"
+            android:layout_marginTop="-60dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/blackbelt" />
+
+        <Button
+            android:id="@+id/score_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/black_belt"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="onScoreClick"
+            android:text="@string/calculate_score"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</ScrollView>

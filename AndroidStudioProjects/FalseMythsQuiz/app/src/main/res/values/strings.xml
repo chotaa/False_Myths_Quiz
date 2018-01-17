@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">False Myths Quiz</string>
+    <string name="xtrue">True</string>
+    <string name="xfalse">False</string>
+    <string name="calculate_score">Calculate my score</string>
+    <string name="scoring_system">Multiple choice questions are 10, True/False questions are 5 points, since you have %50 chance compared to %25 chance. Again, each correct checkbox answer earns you 5 points. And finally, text input question earns you 20 points since you have to type in the answer in correct spelling.</string>
+    <string name="the_answers">&#8226; The real color of the Sun is white.\n&#8226; Vikings didn\'t wear horns on their helmets.\n&#8226; \'Sushi\' actually translates to \'Sour Rice\'.\n&#8226; Seasons, indeed cause the Earth\'s axial tilt.\n&#8226; Fortune cookies are originated in Japan.\n&#8226; Actually, Einstein didn\'t fail at math classes in school.\n&#8226; Almond and spinach do contain cyanide.\n&#8226; The name of the insect is \'Cicada\'\n&#8226; \'Black Belt\' indicates one\'s competency at all the basic techniques, in martial arts.</string>
+    <string name="your_score">Your Score:</string>
+    <string name="q1a">Orange</string>
+    <string name="q1b">White</string>
+    <string name="q1c">Yellow</string>
+    <string name="q1d">Magenta</string>
+    <string name="q3a">Raw fish</string>
+    <string name="q3b">Rice roll</string>
+    <string name="q3c">Sour Rice</string>
+    <string name="q3d">Fish roll</string>
+    <string name="q5a">Japan</string>
+    <string name="q5b">Taiwan</string>
+    <string name="q5c">China</string>
+    <string name="q5d">Philippines</string>
+    <string name="q7a">Banana</string>
+    <string name="q7b">Spinach</string>
+    <string name="q7c">Almond</string>
+    <string name="q7d">Carrot</string>
+    <string name="type_hint">Type your answer here…</string>
+    <string name="expertise">Expertise / Mastery level</string>
+    <string name="competency">Competency at all the basic techniques</string>
+    <string name="experience">Number of years of experience</string>
+    <string name="leader">The Leader in a team</string>
+    <string name="correct_answers">Correct Answers</string>
+    <string name="scoring_system_title">Scoring System</string>
+    <string name="restart">Restart Quiz</string>
+
+</resources>

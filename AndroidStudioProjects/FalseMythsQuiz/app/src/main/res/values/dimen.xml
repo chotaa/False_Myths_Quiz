@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="general_padding">16dp</dimen>
+    <dimen name="short_answer_width">120dp</dimen>
+    <dimen name="short_radio_group">140dp</dimen>
+</resources>

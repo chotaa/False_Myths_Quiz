@@ -10,7 +10,6 @@
         android:id="@+id/title_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/general_padding"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true">
 
@@ -21,7 +20,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:paddingLeft="16dp"
+            android:paddingLeft="8dp"
             android:text="chotaa's"
             android:textColor="#000"
             android:textSize="20sp"
@@ -29,9 +28,8 @@
 
         <ImageView
             android:id="@+id/title"
-            android:layout_width="280dp"
-            android:layout_height="310dp"
-            android:paddingBottom="40dp"
+            android:layout_width="250dp"
+            android:layout_height="260dp"
             android:paddingTop="8dp"
             android:scaleType="fitCenter"
             android:src="@drawable/maintitle"
@@ -43,7 +41,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title_img"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
         android:backgroundTint="#000"
         android:onClick="beginButton"
         android:text="Begin"

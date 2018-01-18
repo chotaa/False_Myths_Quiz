@@ -203,12 +203,17 @@ public class MainActivity extends AppCompatActivity {
 
         // This is to check if there are unanswered questions. And if yes, then show a Toast message warning.
         if (answerMissing < 9 && numberCheckedCheckbox == 1) {
-            Toast.makeText(this, (9 - answerMissing) + " more to go!\n\n1 answer missing in question 7\n\nPlease answer all the questions :)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please answer all the questions\n\n" + (9 - answerMissing) + " more to go!\n\nA Checkbox missing in Question 7", Toast.LENGTH_SHORT).show();
             totalPoints = 0;
             answerMissing = 0;
             return;
         } else if (answerMissing < 9) {
-            Toast.makeText(this, (9 - answerMissing) + " more to go!\n\nPlease answer all the questions :)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please answer all the questions\n\n" + (9 - answerMissing) + " more to go!", Toast.LENGTH_SHORT).show();
+            totalPoints = 0;
+            answerMissing = 0;
+            return;
+        } else if (answerMissing == 9 && numberCheckedCheckbox == 1) {
+            Toast.makeText(this, "Allmost done!\n\nA Checkbox missing in Question 7", Toast.LENGTH_SHORT).show();
             totalPoints = 0;
             answerMissing = 0;
             return;

@@ -20,7 +20,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:paddingLeft="8dp"
+            android:paddingLeft="16dp"
             android:text="chotaa's"
             android:textColor="#000"
             android:textSize="20sp"
@@ -29,8 +29,8 @@
         <ImageView
             android:id="@+id/title"
             android:layout_width="250dp"
-            android:layout_height="260dp"
-            android:paddingTop="8dp"
+            android:layout_height="240dp"
+            android:paddingTop="10dp"
             android:scaleType="fitCenter"
             android:src="@drawable/maintitle"
             android:contentDescription="LOGO" />

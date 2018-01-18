@@ -20,6 +20,47 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Declaring constants to be used for saving instance states.
+    static final String STATE_Q1 = "question1";
+    static final String STATE_Q2 = "question2";
+    static final String STATE_Q3 = "question3";
+    static final String STATE_Q4 = "question4";
+    static final String STATE_Q5 = "question5";
+    static final String STATE_Q6 = "question6";
+    static final String STATE_Q7_1 = "question7-1";
+    static final String STATE_Q7_2 = "question7-2";
+    static final String STATE_Q8 = "question8";
+    static final String STATE_Q9 = "question9";
+    static final String STATE_CHECKBOX = "numberOfCheckedCheckboxes";
+
+    // Method that saves the data inside constants.
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+        if (checkBanana.isChecked())
+            outState.putInt(STATE_Q7_1, checkBanana.getId());
+        else if (checkSpinach.isChecked())
+            outState.putInt(STATE_Q7_1, checkSpinach.getId());
+
+        if (checkAlmond.isChecked())
+            outState.putInt(STATE_Q7_2, checkAlmond.getId());
+        else if (checkCarrot.isChecked())
+            outState.putInt(STATE_Q7_2, checkCarrot.getId());
+
+        // Save the user's current game state
+        outState.putInt(STATE_Q1, q1Group.getCheckedRadioButtonId());
+        outState.putInt(STATE_Q2, q2Group.getCheckedRadioButtonId());
+        outState.putInt(STATE_Q3, q3Group.getCheckedRadioButtonId());
+        outState.putInt(STATE_Q4, q4Group.getCheckedRadioButtonId());
+        outState.putInt(STATE_Q5, q5Group.getCheckedRadioButtonId());
+        outState.putInt(STATE_Q6, q6Group.getCheckedRadioButtonId());
+        outState.putInt(STATE_Q9, q9Group.getCheckedRadioButtonId());
+        outState.putString(STATE_Q8, String.valueOf(userTextInput.getText().toString()));
+        outState.putInt(STATE_CHECKBOX, numberCheckedCheckbox);
+
+        super.onSaveInstanceState(outState);
+    }
+
     // Keeps track of the score.
     int totalPoints = 0;
 
@@ -53,6 +94,32 @@ public class MainActivity extends AppCompatActivity {
 
     // This variable helps with keeping track of the unanswered questions.
     int answerMissing = 0;
+
+    // Method that restores the data from the constants.
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        // Always call the superclass so it can restore the view hierarchy
+        super.onRestoreInstanceState(savedInstanceState);
+
+        if (savedInstanceState.getInt(STATE_Q7_1) == checkBanana.getId())
+           checkBanana.setChecked(true);
+        else if (savedInstanceState.getInt(STATE_Q7_1) == checkSpinach.getId())
+            checkSpinach.setChecked(true);
+
+        if (savedInstanceState.getInt(STATE_Q7_2) == checkAlmond.getId())
+            checkAlmond.setChecked(true);
+        else if (savedInstanceState.getInt(STATE_Q7_2) == checkCarrot.getId())
+            checkCarrot.setChecked(true);
+
+        q1Group.check(savedInstanceState.getInt(STATE_Q1));
+        q2Group.check(savedInstanceState.getInt(STATE_Q2));
+        q3Group.check(savedInstanceState.getInt(STATE_Q3));
+        q4Group.check(savedInstanceState.getInt(STATE_Q4));
+        q5Group.check(savedInstanceState.getInt(STATE_Q5));
+        q6Group.check(savedInstanceState.getInt(STATE_Q6));
+        userTextInput.setText(savedInstanceState.getString(STATE_Q8));
+        q9Group.check(savedInstanceState.getInt(STATE_Q9));
+        numberCheckedCheckbox = savedInstanceState.getInt(STATE_CHECKBOX);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

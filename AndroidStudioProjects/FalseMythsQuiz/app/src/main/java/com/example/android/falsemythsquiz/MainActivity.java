@@ -5,18 +5,12 @@ import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.SoundEffectConstants;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,17 +31,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState) {
 
-        if (checkBanana.isChecked())
-            outState.putInt(STATE_Q7_1, checkBanana.getId());
-        else if (checkSpinach.isChecked())
-            outState.putInt(STATE_Q7_1, checkSpinach.getId());
+        if (checkBanana.isChecked()) outState.putInt(STATE_Q7_1, checkBanana.getId());
+        else if (checkSpinach.isChecked()) outState.putInt(STATE_Q7_1, checkSpinach.getId());
 
-        if (checkAlmond.isChecked())
-            outState.putInt(STATE_Q7_2, checkAlmond.getId());
-        else if (checkCarrot.isChecked())
-            outState.putInt(STATE_Q7_2, checkCarrot.getId());
+        if (checkAlmond.isChecked()) outState.putInt(STATE_Q7_2, checkAlmond.getId());
+        else if (checkCarrot.isChecked()) outState.putInt(STATE_Q7_2, checkCarrot.getId());
 
-        // Save the user's current game state
+        // Save the UI's current state.
         outState.putInt(STATE_Q1, q1Group.getCheckedRadioButtonId());
         outState.putInt(STATE_Q2, q2Group.getCheckedRadioButtonId());
         outState.putInt(STATE_Q3, q3Group.getCheckedRadioButtonId());
@@ -97,11 +87,11 @@ public class MainActivity extends AppCompatActivity {
 
     // Method that restores the data from the constants.
     public void onRestoreInstanceState(Bundle savedInstanceState) {
-        // Always call the superclass so it can restore the view hierarchy
+
         super.onRestoreInstanceState(savedInstanceState);
 
         if (savedInstanceState.getInt(STATE_Q7_1) == checkBanana.getId())
-           checkBanana.setChecked(true);
+            checkBanana.setChecked(true);
         else if (savedInstanceState.getInt(STATE_Q7_1) == checkSpinach.getId())
             checkSpinach.setChecked(true);
 
@@ -145,19 +135,19 @@ public class MainActivity extends AppCompatActivity {
         soundButton = findViewById(R.id.sound_button);
         userTextInput = findViewById(R.id.text_input);
 
+        // Since the bug_sound.mp3 is longer than a traditional sound FX, I couldn't use SoundPool class. Sound cuts in the middle of the playback.
+        final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.bug_sound);
+
         // This creates a "listener" thingy that waits for an onClick event to happen.
-        soundButton.setOnClickListener(
-                new View.OnClickListener() {
-                    public void onClick(View view) {
-                        mySound.play(bugSound, .25f, .25f, 1, 0, 1);
-                    }
-                });
+        soundButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                mediaPlayer.start();
+            }
+        });
 
-
-        // Initializing the SoundPool class and loading the sound file matching it to choiceClick variable.
+        // Initializing the SoundPool class and loading the sound file matching it to choiceClick and quizComplete variables.
         mySound = new SoundPool.Builder().setMaxStreams(2).build();
         choiceClick = mySound.load(this, R.raw.click, 1);
-        bugSound = mySound.load(this, R.raw.cicada, 1);
         quizComplete = mySound.load(this, R.raw.complete, 1);
     }
 
@@ -197,7 +187,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Converting View IDs to Checkbox object.
+    /**
+     * @param checkedId is the ID of the Checkbox that user selected.
+     * @return This method returns Checkbox object.
+     */
     private CheckBox whichCheckbox(int checkedId) {
 
         if (checkedId == R.id.checkbox_banana) {
@@ -211,8 +204,7 @@ public class MainActivity extends AppCompatActivity {
 
         } else if (checkedId == R.id.checkbox_carrot) {
             return checkCarrot;
-        } else
-            return null;
+        } else return null;
 
     }
 
@@ -250,23 +242,18 @@ public class MainActivity extends AppCompatActivity {
         totalPoints += calculateScore(q9Id, R.id.q9_competency, false);
 
         // Checkbox question points checked. 5 Points for each correct checkbox.
-        if (checkAlmond.isChecked())
-            totalPoints += 5;
+        if (checkAlmond.isChecked()) totalPoints += 5;
 
-        if (checkSpinach.isChecked())
-            totalPoints += 5;
+        if (checkSpinach.isChecked()) totalPoints += 5;
 
         // Name the insect question points delivered.
-        if (userTextInput.getText().toString().toLowerCase().equals("cicada"))
-            totalPoints += 20;
+        if (userTextInput.getText().toString().toLowerCase().equals("cicada")) totalPoints += 20;
 
         // Text input unanswered question flags.
-        if (userTextInput.getText().toString().trim().length() > 1)
-            answerMissing += 1;
+        if (userTextInput.getText().toString().trim().length() > 1) answerMissing += 1;
 
         // Checkbox unanswered question flags.
-        if (numberCheckedCheckbox > 0)
-            answerMissing += 1;
+        if (numberCheckedCheckbox > 0) answerMissing += 1;
 
         // This is to check if there are unanswered questions. And if yes, then show a Toast message warning.
         if (answerMissing < 9 && numberCheckedCheckbox == 1) {
@@ -298,11 +285,17 @@ public class MainActivity extends AppCompatActivity {
         // This is to prevent a cheap way to cheat by going back to the question page and hitting 'Calculate My Score' button again.
         totalPoints = 0;
 
-        /** I commented the line below, because I created a more advanced results page.
-         * I Kept the line below, because it is stated as "required" in the rubric */
+        /** I commented the line below and kept it on purpose, because I created a more advanced results page.
+         * And, because it is stated as "required" in the rubric */
         // Toast.makeText(this, "Points " + totalPoints, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * @param idChecked   is the RadioButton ID that user selected.
+     * @param idCorrect   is the RadioButton ID of the correct answer.
+     * @param isTrueFalse is a flag for grading purposes. Since True / False questions are rather easy, they provide less points.
+     * @return This method returns points for the totalPoints variable.
+     */
     private int calculateScore(int idChecked, int idCorrect, boolean isTrueFalse) {
 
         // Calculating score for each question with 3 arguments. While keeping track of unanswered questions.

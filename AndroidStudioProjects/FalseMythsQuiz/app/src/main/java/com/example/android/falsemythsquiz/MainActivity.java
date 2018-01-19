@@ -60,8 +60,9 @@ public class MainActivity extends AppCompatActivity {
     // Declaring the class and view variable for sound FX playback.
     SoundPool mySound;
     int choiceClick;
-    int bugSound;
     int quizComplete;
+
+    MediaPlayer mediaPlayer;
 
     // Declarations for the listen & spell question.
     Button soundButton;
@@ -136,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
         userTextInput = findViewById(R.id.text_input);
 
         // Since the bug_sound.mp3 is longer than a traditional sound FX, I couldn't use SoundPool class. Sound cuts in the middle of the playback.
-        final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.bug_sound);
+        mediaPlayer = MediaPlayer.create(this, R.raw.bug_sound);
 
         // This creates a "listener" thingy that waits for an onClick event to happen.
         soundButton.setOnClickListener(new View.OnClickListener() {
@@ -272,6 +273,9 @@ public class MainActivity extends AppCompatActivity {
             answerMissing = 0;
             return;
         }
+
+        // Stop the bug sound if was playing, in order to avoid sound overlapping.
+        mediaPlayer.stop();
 
         // Play quiz completion stinger / sound FX.
         mySound.play(quizComplete, .25f, .25f, 2, 0, 1);

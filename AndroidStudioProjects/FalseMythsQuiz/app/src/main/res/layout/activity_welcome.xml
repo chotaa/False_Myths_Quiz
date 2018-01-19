@@ -10,9 +10,9 @@
         android:id="@+id/title_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/general_padding"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true">
+        android:layout_centerVertical="true"
+        android:padding="@dimen/general_padding">
 
         <TextView
             android:id="@+id/chotaa"
@@ -31,11 +31,11 @@
             android:id="@+id/title"
             android:layout_width="280dp"
             android:layout_height="310dp"
+            android:contentDescription="LOGO"
             android:paddingBottom="40dp"
             android:paddingTop="8dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/maintitle"
-            android:contentDescription="LOGO" />
+            android:src="@drawable/maintitle" />
     </RelativeLayout>
 
     <Button

@@ -30,10 +30,10 @@
             android:id="@+id/title"
             android:layout_width="250dp"
             android:layout_height="240dp"
+            android:contentDescription="LOGO"
             android:paddingTop="10dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/maintitle"
-            android:contentDescription="LOGO" />
+            android:src="@drawable/maintitle" />
     </RelativeLayout>
 
     <Button

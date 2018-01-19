@@ -23,7 +23,7 @@ public class Welcome extends AppCompatActivity {
         choiceClick = mySound.load(this, R.raw.click, 1);
     }
 
-    public void beginButton(View view){
+    public void beginButton(View view) {
 
         // Play click sound FX.
         mySound.play(choiceClick, .5f, .5f, 1, 0, 1);
